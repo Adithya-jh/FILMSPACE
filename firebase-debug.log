@@ -1,0 +1,96 @@
+[debug] [2024-02-22T07:27:21.075Z] ----------------------------------------------------------------------
+[debug] [2024-02-22T07:27:21.077Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2024-02-22T07:27:21.077Z] CLI Version:   13.3.1
+[debug] [2024-02-22T07:27:21.077Z] Platform:      darwin
+[debug] [2024-02-22T07:27:21.078Z] Node Version:  v20.11.0
+[debug] [2024-02-22T07:27:21.078Z] Time:          Thu Feb 22 2024 12:57:21 GMT+0530 (India Standard Time)
+[debug] [2024-02-22T07:27:21.078Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-22T07:27:21.116Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-22T07:27:21.116Z] > authorizing via signed-in user (jayahari273@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/jayahariaditiya/Desktop/builds/filmspace
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-02-22T07:27:29.256Z] Using project from CLI flag: reddit-clone-yt
+[debug] [2024-02-22T07:27:29.257Z] > refreshing access token with scopes: []
+[debug] [2024-02-22T07:27:29.259Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-02-22T07:27:29.260Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-22T07:27:29.599Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2024-02-22T07:27:29.600Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-22T07:27:29.600Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/reddit-clone-yt [none]
+[debug] [2024-02-22T07:27:30.055Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/reddit-clone-yt 401
+[debug] [2024-02-22T07:27:30.056Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/reddit-clone-yt {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2024-02-22T07:27:30.057Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2024-02-22T07:27:30.279Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:292:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project reddit-clone-yt. Please make sure the project exists and your account has permission to access it.
+[debug] [2024-02-22T07:28:05.674Z] ----------------------------------------------------------------------
+[debug] [2024-02-22T07:28:05.675Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2024-02-22T07:28:05.676Z] CLI Version:   13.3.1
+[debug] [2024-02-22T07:28:05.676Z] Platform:      darwin
+[debug] [2024-02-22T07:28:05.676Z] Node Version:  v20.11.0
+[debug] [2024-02-22T07:28:05.676Z] Time:          Thu Feb 22 2024 12:58:05 GMT+0530 (India Standard Time)
+[debug] [2024-02-22T07:28:05.676Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-02-22T07:28:05.713Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-02-22T07:28:05.713Z] > authorizing via signed-in user (jayahari273@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/jayahariaditiya/Desktop/builds/filmspace
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-02-22T07:28:09.434Z] Using project from CLI flag: reddit-clone-yt
+[debug] [2024-02-22T07:28:09.435Z] > refreshing access token with scopes: []
+[debug] [2024-02-22T07:28:09.437Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-02-22T07:28:09.438Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-22T07:28:09.780Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 400
+[debug] [2024-02-22T07:28:09.780Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-02-22T07:28:09.781Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/reddit-clone-yt [none]
+[debug] [2024-02-22T07:28:10.316Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/reddit-clone-yt 401
+[debug] [2024-02-22T07:28:10.317Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/reddit-clone-yt {"error":{"code":401,"message":"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.","status":"UNAUTHENTICATED"}}
+[debug] [2024-02-22T07:28:10.318Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2024-02-22T07:28:10.525Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at responseToError (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:49:12)
+    at RetryOperation._fn (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:292:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: Failed to get Firebase project reddit-clone-yt. Please make sure the project exists and your account has permission to access it.
