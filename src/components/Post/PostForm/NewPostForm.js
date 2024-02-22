@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Box,
   Button,
@@ -8,76 +8,73 @@ import {
   Stack,
   Textarea,
   Image,
-} from "@chakra-ui/react";
-import { User } from "firebase/auth";
+} from '@chakra-ui/react';
+import { User } from 'firebase/auth';
 import {
   addDoc,
   collection,
   doc,
   serverTimestamp,
   updateDoc,
-} from "firebase/firestore";
-import { useRouter } from "next/router";
-import { BiPoll } from "react-icons/bi";
-import { BsLink45Deg, BsMic } from "react-icons/bs";
-import { IoDocumentText, IoImageOutline } from "react-icons/io5";
-import { AiFillCloseCircle } from "react-icons/ai";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { firestore, storage } from "../../../firebase/clientApp";
-import TabItem from "./TabItem";
-import { postState } from "../../../atoms/postsAtom";
-import { getDownloadURL, ref, uploadString } from "firebase/storage";
-import TextInputs from "./TextInputs";
-import ImageUpload from "./ImageUpload";
+} from 'firebase/firestore';
+import { useRouter } from 'next/router';
+import { BiPoll } from 'react-icons/bi';
+import { BsLink45Deg, BsMic } from 'react-icons/bs';
+import { IoDocumentText, IoImageOutline } from 'react-icons/io5';
+import { AiFillCloseCircle } from 'react-icons/ai';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { firestore, storage } from '../../../firebase/clientApp';
+// import TabItem from "./TabItem"; // Removed this line
+import { postState } from '../../../atoms/postsAtom';
+import { getDownloadURL, ref, uploadString } from 'firebase/storage';
+import TextInputs from './TextInputs';
+import ImageUpload from './ImageUpload';
+import TabItem from './TabItem';
 
 const formTabs = [
   {
-    title: "Post",
+    title: 'Post',
     icon: IoDocumentText,
   },
   {
-    title: "Images & Video",
+    title: 'Images & Video',
     icon: IoImageOutline,
   },
   {
-    title: "Link",
+    title: 'Link',
     icon: BsLink45Deg,
   },
   {
-    title: "Poll",
+    title: 'Poll',
     icon: BiPoll,
   },
   {
-    title: "Talk",
+    title: 'Talk',
     icon: BsMic,
   },
 ];
 
-export type TabItem = {
-  title: string;
-  icon: typeof Icon.arguments;
-};
+// export type TabItem = {
+//   title: string;
+//   icon: typeof Icon.arguments;
+// };
 
-type NewPostFormProps = {
-  communityId: string;
-  communityImageURL?: string;
-  user: User;
-};
+// type NewPostFormProps = {
+//   communityId: string;
+//   communityImageURL?: string;
+//   user: User;
+// };
 
-const NewPostForm: React.FC<NewPostFormProps> = ({
-  communityId,
-  communityImageURL,
-  user,
-}) => {
+const NewPostForm = ({ communityId, communityImageURL, user }) => {
   const [selectedTab, setSelectedTab] = useState(formTabs[0].title);
   const [textInputs, setTextInputs] = useState({
-    title: "",
-    body: "",
+    title: '',
+    body: '',
   });
-  const [selectedFile, setSelectedFile] = useState<string>();
-  const selectFileRef = useRef<HTMLInputElement>(null);
+  const [selectedFile, setSelectedFile] = useState();
+  const selectFileRef = useRef(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const router = useRouter();
   const setPostItems = useSetRecoilState(postState);
 
@@ -85,11 +82,11 @@ const NewPostForm: React.FC<NewPostFormProps> = ({
     setLoading(true);
     const { title, body } = textInputs;
     try {
-      const postDocRef = await addDoc(collection(firestore, "posts"), {
+      const postDocRef = await addDoc(collection(firestore, 'posts'), {
         communityId,
-        communityImageURL: communityImageURL || "",
+        communityImageURL: communityImageURL || '',
         creatorId: user.uid,
-        userDisplayText: user.email!.split("@")[0],
+        // userDisplayText: user.email!.split("@")[0],
         title,
         body,
         numberOfComments: 0,
@@ -98,17 +95,17 @@ const NewPostForm: React.FC<NewPostFormProps> = ({
         editedAt: serverTimestamp(),
       });
 
-      console.log("HERE IS NEW POST ID", postDocRef.id);
+      console.log('HERE IS NEW POST ID', postDocRef.id);
 
       // // check if selectedFile exists, if it does, do image processing
       if (selectedFile) {
         const imageRef = ref(storage, `posts/${postDocRef.id}/image`);
-        await uploadString(imageRef, selectedFile, "data_url");
+        await uploadString(imageRef, selectedFile, 'data_url');
         const downloadURL = await getDownloadURL(imageRef);
         await updateDoc(postDocRef, {
           imageURL: downloadURL,
         });
-        console.log("HERE IS DOWNLOAD URL", downloadURL);
+        console.log('HERE IS DOWNLOAD URL', downloadURL);
       }
 
       // Clear the cache to cause a refetch of the posts
@@ -118,13 +115,13 @@ const NewPostForm: React.FC<NewPostFormProps> = ({
       }));
       router.back();
     } catch (error) {
-      console.log("createPost error", error);
-      setError("Error creating post");
+      console.log('createPost error', error);
+      setError('Error creating post');
     }
     setLoading(false);
   };
 
-  const onSelectImage = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onSelectImage = (event) => {
     const reader = new FileReader();
     if (event.target.files?.[0]) {
       reader.readAsDataURL(event.target.files[0]);
@@ -132,14 +129,12 @@ const NewPostForm: React.FC<NewPostFormProps> = ({
 
     reader.onload = (readerEvent) => {
       if (readerEvent.target?.result) {
-        setSelectedFile(readerEvent.target?.result as string);
+        setSelectedFile(readerEvent.target?.result);
       }
     };
   };
 
-  const onTextChange = ({
-    target: { name, value },
-  }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const onTextChange = ({ target: { name, value } }) => {
     setTextInputs((prev) => ({
       ...prev,
       [name]: value,
@@ -159,7 +154,7 @@ const NewPostForm: React.FC<NewPostFormProps> = ({
         ))}
       </Flex>
       <Flex p={4}>
-        {selectedTab === "Post" && (
+        {selectedTab === 'Post' && (
           <TextInputs
             textInputs={textInputs}
             onChange={onTextChange}
@@ -167,7 +162,7 @@ const NewPostForm: React.FC<NewPostFormProps> = ({
             loading={loading}
           />
         )}
-        {selectedTab === "Images & Video" && (
+        {selectedTab === 'Images & Video' && (
           <ImageUpload
             selectedFile={selectedFile}
             setSelectedFile={setSelectedFile}
