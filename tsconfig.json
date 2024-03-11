@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Post/PostForm/TabItem.js", "src/components/Post/PostForm/NewPostForm.js", "src/components/Modal/Auth/OAuthButtons.js"],
   "exclude": ["node_modules"]
 }
